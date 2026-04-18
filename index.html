@@ -262,11 +262,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 const urlParams = new URLSearchParams(window.location.search);
 const adName = urlParams.get('sub1') || 'unknown_ad';
 
-// 2. Put YOUR Meta Pixel ID here
+// 2. Define your tracking variables
 const myMetaPixelId = '4053933128201639';
 
+// We use encodeURIComponent to make spaces and special characters safe for the browser
+const sub6Value = encodeURIComponent('iPhone 17 Pro | 256 GB | Deep Blue (Free Gift Winner)');
+const sub7Value = encodeURIComponent('https://m.media-amazon.com/images/I/618vU2qKXQL._AC_UF1000,1000_QL80_.jpg');
+
 // 3. Construct the final affiliate link with the dynamic data
-const finalAffiliateLink = `https://t.trklinkx.com/click?pid=3268&offer_id=12255&sub1=${adName}&sub4=${myMetaPixelId}`;
+const finalAffiliateLink = `https://t.trklinkx.com/click?pid=3268&offer_id=12255&sub1=${adName}&sub4=${myMetaPixelId}&sub6=${sub6Value}&sub7=${sub7Value}`;
 
 // 4. Attach this link to the final "Get your Latest iPhone" button
 document.addEventListener("DOMContentLoaded", function() {
