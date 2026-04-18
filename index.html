@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="1.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكافأة اختبار الشبكة - السعودية</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f7;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            min-height: 100vh;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .urgency-banner {
+            background-color: #ff3b30;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .product-image {
+            width: 100%;
+            max-width: 250px;
+            margin: 10px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .headline {
+            font-size: 1.4rem;
+            color: #1c1c1e;
+            margin-bottom: 10px;
+        }
+        .sub-headline {
+            font-size: 1rem;
+            color: #636366;
+            margin-bottom: 25px;
+        }
+        /* Survey Section */
+        .question-container {
+            display: none;
+            animation: fadeIn 0.5s;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e5e5ea;
+        }
+        .question-container.active {
+            display: block;
+        }
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .btn-answer {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #007aff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-answer:hover {
+            background-color: #0056b3;
+        }
+        /* Loading and Success Section */
+        .loading-section {
+            display: none;
+            font-size: 1.2rem;
+            color: #007aff;
+            font-weight: bold;
+            margin: 30px 0;
+        }
+        .success-section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .success-text {
+            color: #34c759;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .btn-final {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background-color: #34c759;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(52, 199, 89, 0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #aeaeb2;
+            padding: 20px;
+            border-top: 1px solid #e5e5ea;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        برنامج اختبار الشبكة - 2026
+    </div>
+    <div class="urgency-banner">
+        ⚠️ انتباه: العرض ينتهي خلال <span id="timer">05:00</span> دقيقة
+    </div>
+
+    <div class="content">
+        <img src="https://m.media-amazon.com/images/I/618vU2qKXQL._AC_UF1000,1000_QL80_.jpg" alt="iPhone 17 Pro" class="product-image">
+        
+        <h1 class="headline">تهانينا! لقد تم اختيارك عشوائياً.</h1>
+        <p class="sub-headline">أجب على ٣ أسئلة بسيطة للتأكد من أهليتك والحصول على <strong>iPhone 17 Pro</strong> مقابل ٣١ ريال فقط (رسوم الشحن).</p>
+
+        <div id="q1" class="question-container active">
+            <div class="question-text">السؤال ١ من ٣: هل تعيش في المملكة العربية السعودية؟</div>
+            <button class="btn-answer" onclick="nextQuestion('q1', 'q2')">نعم</button>
+            <button class="btn-answer" onclick="nextQuestion('q1', 'q2')">لا</button>
+        </div>
+
+        <div id="q2" class="question-container">
+            <div class="question-text">السؤال ٢ من ٣: هل استخدمت هاتف آيفون من قبل؟</div>
+            <button class="btn-answer" onclick="nextQuestion('q2', 'q3')">نعم</button>
+            <button class="btn-answer" onclick="nextQuestion('q2', 'q3')">لا</button>
+        </div>
+
+        <div id="q3" class="question-container">
+            <div class="question-text">السؤال ٣ من ٣: هل توافق على دفع ٣١ ريال كرسوم شحن لتوصيل الجهاز لمنزلك؟</div>
+            <button class="btn-answer" onclick="finishSurvey()">نعم، أوافق</button>
+            <button class="btn-answer" onclick="finishSurvey()">لا</button>
+        </div>
+
+        <div id="loading" class="loading-section">
+            جاري التحقق من إجاباتك والتأكد من توفر المخزون... ⏳
+        </div>
+
+        <div id="success" class="success-section">
+            <div class="success-text">✅ مبروك! أنت مؤهل للحصول على الجهاز.</div>
+            <p style="color: #636366; margin-bottom: 20px;">تم حجز جهازك بنجاح. يرجى إكمال تفاصيل الشحن الخاصة بك في الصفحة التالية.</p>
+            <a href="https://usaofficial.click/saudi" class="btn-final">احصل على أحدث آيفون الآن</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        هذا العرض لغرض التسويق واختبار الشبكة فقط. تطبق الشروط والأحكام.
+    </div>
+</div>
+
+<script>
+    // Handle switching between questions
+    function nextQuestion(currentId, nextId) {
+        document.getElementById(currentId).classList.remove('active');
+        document.getElementById(nextId).classList.add('active');
+    }
+
+    // Handle the final step (Simulated Loading -> Success)
+    function finishSurvey() {
+        document.getElementById('q3').classList.remove('active');
+        document.getElementById('loading').style.display = 'block';
+        
+        // Wait 2 seconds, then show final button
+        setTimeout(function() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('success').style.display = 'block';
+        }, 2000);
+    }
+
+    // Countdown Timer Logic
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = 0; // Stops at 00:00
+            }
+        }, 1000);
+    }
+
+    // Start 5-minute timer on load
+    window.onload = function () {
+        var fiveMinutes = 60 * 5,
+            display = document.querySelector('#timer');
+        startTimer(fiveMinutes, display);
+    };
+</script>
+
+</body>
+</html>
